@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "pythoneda-realm-application-unveilingpartner"
+version = "0.0.1a1"
+description = "Application layer for UnveilingPartner's PythonEDA realm"
+authors = ["rydnr <github@acm-sl.org>"]
+readme = "README.md"
+homepage = "https://github.com/pythoneda-realm-application/unveilingpartner"
+packages = [{include = "pythonedarealmapplicationunveilingpartner"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pythoneda-base = "^0.0.1a15"
+pythoneda-realm-unveilingpartner = "^0.0.1a1"
+pythoneda-realm-infrastructure-unveilingpartner = "^0.0.1a1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
