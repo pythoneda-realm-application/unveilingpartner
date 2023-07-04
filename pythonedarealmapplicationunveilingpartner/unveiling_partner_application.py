@@ -50,6 +50,7 @@ class UnveilingPartnerApplication(PythonEDA):
         HydratedUnveilingPartner.set_master_password(passwd)
         HydratedUnveilingPartner.initialize()
 
+
 if __name__ == "__main__":
 
     asyncio.run(UnveilingPartnerApplication.main())
