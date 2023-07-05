@@ -26,4 +26,8 @@ rec {
       shellHook =
         shellHook-for { inherit package pythoneda-base python nixpkgsRelease; };
     };
+  app-for = { package, pname }: {
+    type = "app";
+    program = "${package}/bin/${pname}.sh";
+  };
 }

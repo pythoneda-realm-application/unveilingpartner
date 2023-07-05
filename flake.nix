@@ -64,6 +64,7 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixos { inherit system; };
+        pname = "pythoneda-realm-application-unveilingpartner";
         description =
           "Application layer for UnveilingPartner's PythonEDA realm";
         license = pkgs.lib.licenses.gpl3;
@@ -71,7 +72,9 @@
           "https://github.com/pythoneda-realm-application/unveilingpartner";
         maintainers = with pkgs.lib.maintainers; [ ];
         nixpkgsRelease = "nixos-23.05";
-        shared = import ./nix/devShells.nix;
+        shared = import ./nix/shared.nix;
+        pythonpackage = "pythonedarealmapplicationunveilingpartner";
+        entrypoint = "${pythonpackage}/${pname}.py";
         pythoneda-realm-application-unveilingpartner-for = { version
           , pythoneda-base, pythoneda-application-base
           , pythoneda-infrastructure-base, pythoneda-realm-unveilingpartner
@@ -79,7 +82,6 @@
           , pythoneda-artifact-event-git-tagging
           , pythoneda-artifact-event-infrastructure-git-tagging, python }:
           let
-            pname = "pythoneda-realm-application-unveilingpartner";
             pythonVersionParts = builtins.splitVersion python.version;
             pythonMajorVersion = builtins.head pythonVersionParts;
             pythonMajorMinorVersion =
@@ -112,8 +114,7 @@
 
             checkInputs = with python.pkgs; [ pytest ];
 
-            pythonImportsCheck =
-              [ "pythonedarealmapplicationunveilingpartner" ];
+            pythonImportsCheck = [ pythonpackage ];
 
             preBuild = ''
               python -m venv .env
@@ -129,9 +130,14 @@
             '';
 
             postInstall = ''
-              mkdir $out/dist
+              mkdir $out/dist $out/bin
               cp dist/${wheelName} $out/dist
               jq ".url = \"$out/dist/${wheelName}\"" $out/lib/python${pythonMajorMinorVersion}/site-packages/${pnameWithUnderscores}-${version}.dist-info/direct_url.json > temp.json && mv temp.json $out/lib/python${pythonMajorMinorVersion}/site-packages/${pnameWithUnderscores}-${version}.dist-info/direct_url.json
+              chmod +x $out/lib/python${pythonMajorMinorVersion}/site-packages/${entrypoint}
+              echo '#!/usr/bin/env sh' > $out/bin/${pname}.sh
+              echo "export PYTHONPATH=$PYTHONPATH" >> $out/bin/${pname}.sh
+              echo '${python}/bin/python ${entrypoint} $@' >> $out/bin/${pname}.sh
+              chmod +x $out/bin/${pname}.sh
             '';
 
             meta = with pkgs.lib; {
@@ -197,6 +203,28 @@
           default = pythoneda-realm-application-unveilingpartner-latest;
         };
         defaultPackage = packages.default;
+        apps = rec {
+          pythoneda-realm-application-unveilingpartner-0_0_1a2-python39 =
+            shared.app-for {
+              package =
+                self.packages.${system}.pythoneda-realm-application-unveilingpartner-0_0_1a2-python39;
+              inherit pname;
+            };
+          pythoneda-realm-application-unveilingpartner-0_0_1a2-python310 =
+            shared.app-for {
+              package =
+                self.packages.${system}.pythoneda-realm-application-unveilingpartner-0_0_1a2-python310;
+              inherit pname;
+            };
+          pythoneda-realm-application-unveilingpartner-latest-python39 =
+            pythoneda-realm-application-unveilingpartner-0_0_1a2-python39;
+          pythoneda-realm-application-unveilingpartner-latest-python310 =
+            pythoneda-realm-application-unveilingpartner-0_0_1a2-python310;
+          pythoneda-realm-application-unveilingpartner-latest =
+            pythoneda-realm-application-unveilingpartner-latest-python310;
+          default = pythoneda-realm-application-unveilingpartner-latest;
+        };
+        defaultApp = apps.default;
         devShells = rec {
           pythoneda-realm-application-unveilingpartner-0_0_1a2-python39 =
             shared.devShell-for {
