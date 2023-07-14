@@ -62,6 +62,36 @@
         "type": "github"
       }
     },
+    "pythoneda-artifact-event-changes": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixos": [
+          "nixos"
+        ],
+        "pythoneda-artifact-shared-changes": [
+          "pythoneda-artifact-shared-changes"
+        ],
+        "pythoneda-base": [
+          "pythoneda-base"
+        ]
+      },
+      "locked": {
+        "lastModified": 1689092331,
+        "narHash": "sha256-+pbmhdYvY5UxWHHkTq8qqK5gh7VWTzPZv9cgE3ISZdU=",
+        "owner": "pythoneda-artifact-event",
+        "repo": "changes",
+        "rev": "ee3425f6f6e9ff0ed5d74bee46a9829b276df210",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pythoneda-artifact-event",
+        "ref": "0.0.1a1",
+        "repo": "changes",
+        "type": "github"
+      }
+    },
     "pythoneda-artifact-event-git-tagging": {
       "inputs": {
         "flake-utils": [
@@ -119,6 +149,36 @@
         "type": "github"
       }
     },
+    "pythoneda-artifact-event-infrastructure-changes": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixos": [
+          "nixos"
+        ],
+        "pythoneda-artifact-event-changes": [
+          "pythoneda-artifact-event-changes"
+        ],
+        "pythoneda-base": [
+          "pythoneda-base"
+        ]
+      },
+      "locked": {
+        "lastModified": 1689093909,
+        "narHash": "sha256-nKdABRjzOJJnoXF2+VwLXf9Rdp9CgOLSlxl514jFUCY=",
+        "owner": "pythoneda-artifact-event-infrastructure",
+        "repo": "changes",
+        "rev": "7f2c2fa985d3584193940b80830e04ed5d4ba9bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pythoneda-artifact-event-infrastructure",
+        "ref": "0.0.1a1",
+        "repo": "changes",
+        "type": "github"
+      }
+    },
     "pythoneda-artifact-event-infrastructure-git-tagging": {
       "inputs": {
         "flake-utils": [
@@ -149,6 +209,33 @@
         "type": "github"
       }
     },
+    "pythoneda-artifact-shared-changes": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixos": [
+          "nixos"
+        ],
+        "pythoneda-base": [
+          "pythoneda-base"
+        ]
+      },
+      "locked": {
+        "lastModified": 1689091755,
+        "narHash": "sha256-bp4QplUEZNYv2pj/cSBXzso4UFVCvf37cb8DaD2w13U=",
+        "owner": "pythoneda-artifact-shared",
+        "repo": "changes",
+        "rev": "638f67c43b7478ec5a3abbccdb57a40c0c0f3e66",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pythoneda-artifact-shared",
+        "ref": "0.0.1a1",
+        "repo": "changes",
+        "type": "github"
+      }
+    },
     "pythoneda-base": {
       "inputs": {
         "flake-utils": [
@@ -159,16 +246,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1687444738,
-        "narHash": "sha256-oxyPAWP+egkj1sX/KcFggtmrwQDmgd75Yq8VTO2fIh4=",
+        "lastModified": 1689179638,
+        "narHash": "sha256-0Ssp6ArsOKzVT6HeyzKw6WWI78PLHCyDUMjLcO8Nrl8=",
         "owner": "pythoneda",
         "repo": "base",
-        "rev": "7fff528b47b120718a093c726b942f2e8af6db15",
+        "rev": "ceb2206e7a23ff9dc418988d2608870564829e48",
         "type": "github"
       },
       "original": {
         "owner": "pythoneda",
-        "ref": "0.0.1a15",
+        "ref": "0.0.1a18",
         "repo": "base",
         "type": "github"
       }
@@ -264,17 +351,48 @@
         "type": "github"
       }
     },
+    "pythoneda-shared-git": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixos": [
+          "nixos"
+        ],
+        "pythoneda-base": [
+          "pythoneda-base"
+        ]
+      },
+      "locked": {
+        "lastModified": 1688918801,
+        "narHash": "sha256-DS0+tGVo91ekxaG6JPklwxv+36HxVRs1vxBHE6DF8D0=",
+        "owner": "pythoneda-shared",
+        "repo": "git",
+        "rev": "8e09cd7f62ba1cf2b582f1cd66b3c99c8b2e92b7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pythoneda-shared",
+        "ref": "0.0.1a4",
+        "repo": "git",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
         "nixos": "nixos",
         "pythoneda-application-base": "pythoneda-application-base",
+        "pythoneda-artifact-event-changes": "pythoneda-artifact-event-changes",
         "pythoneda-artifact-event-git-tagging": "pythoneda-artifact-event-git-tagging",
+        "pythoneda-artifact-event-infrastructure-changes": "pythoneda-artifact-event-infrastructure-changes",
         "pythoneda-artifact-event-infrastructure-git-tagging": "pythoneda-artifact-event-infrastructure-git-tagging",
+        "pythoneda-artifact-shared-changes": "pythoneda-artifact-shared-changes",
         "pythoneda-base": "pythoneda-base",
         "pythoneda-infrastructure-base": "pythoneda-infrastructure-base",
         "pythoneda-realm-infrastructure-unveilingpartner": "pythoneda-realm-infrastructure-unveilingpartner",
-        "pythoneda-realm-unveilingpartner": "pythoneda-realm-unveilingpartner"
+        "pythoneda-realm-unveilingpartner": "pythoneda-realm-unveilingpartner",
+        "pythoneda-shared-git": "pythoneda-shared-git"
       }
     }
   },

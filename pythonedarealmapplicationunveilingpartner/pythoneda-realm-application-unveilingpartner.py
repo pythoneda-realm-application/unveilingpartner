@@ -18,10 +18,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
+import asyncio
 from pythonedarealminfrastructureunveilingpartner.hydrated_unveiling_partner import HydratedUnveilingPartner
 from pythonedaapplication.pythoneda import PythonEDA
-
-import asyncio
+from pythonedaartifacteventchanges.change_staging_requested import ChangeStagingRequested
 
 class UnveilingPartnerApplication(PythonEDA):
     """
@@ -49,7 +49,6 @@ class UnveilingPartnerApplication(PythonEDA):
         """
         HydratedUnveilingPartner.set_master_password(passwd)
         HydratedUnveilingPartner.initialize()
-
 
 if __name__ == "__main__":
 
