@@ -1,3 +1,4 @@
+# vim: set fileencoding=utf-8
 """
 pythoneda/realm/unveilingpartner/application/unveilingpartner_app.py
 
@@ -19,7 +20,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 import asyncio
-from pythoneda.application import PythonEDA
+from pythoneda.shared.application import PythonEDA
 
 
 class UnveilingpartnerApp(PythonEDA):
@@ -44,6 +45,7 @@ class UnveilingpartnerApp(PythonEDA):
             from pythoneda.realm.unveilingpartner.application.unveilingpartner_banner import (
                 UnveilingpartnerBanner,
             )
+
             banner = UnveilingpartnerBanner()
         except ImportError:
             banner = None
