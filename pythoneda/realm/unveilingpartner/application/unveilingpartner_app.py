@@ -67,9 +67,7 @@ class UnveilingpartnerApp(PythonEDA):
 
 
 if __name__ == "__main__":
-    asyncio.run(
-        UnveilingpartnerApp.main("pythoneda.realm.unveilingpartner.Unveilingpartner")
-    )
+    asyncio.run(UnveilingpartnerApp.main())
 # vim: syntax=python ts=4 sw=4 sts=4 tw=79 sr et
 # Local Variables:
 # mode: python
